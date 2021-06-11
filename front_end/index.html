@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+    <head>
+        <title>Home</title>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    </head>
+    <body>
+        <h1>Hello</h1>
+        <script>
+            var id = 27;
+            var marca = "Testeajax1";
+
+            function run_ajax_insert(){
+
+                // [INICIO] AJAX
+
+                var dados = {};
+                dados.id = id;
+                dados.marca = marca;
+
+                $.ajax({
+                    url: 'http://localhost:8081/api',
+                    method: 'POST',
+                    data: JSON.stringify(dados),
+                    processData: false,
+                    contentType: "application/json; charset=utf-8"
+                }).done(function(resposta){
+
+                    console.log(resposta);
+
+                    var dadosResposta = JSON.parse(resposta);
+                    
+                    console.log(dadosResposta.message);
+
+                })
+
+                // [FIM] AJAX
+            }
+
+            function run_ajax_select(){
+
+                // [INICIO] AJAX
+
+                var dados = {};
+                dados.id = id;
+                dados.marca = marca;
+
+                $.ajax({
+                    url: 'http://localhost:8081/api',
+                    method: 'GET',
+                    data: JSON.stringify(dados),
+                    processData: false,
+                    contentType: "application/json; charset=utf-8"
+                }).done(function(resposta){
+
+                    console.log(resposta);
+
+                    var dadosResposta = JSON.parse(resposta);
+                    
+                    for(let i = 0; i < dadosResposta.dados.length; i++){
+                        console.log(dadosResposta.dados[i].message);
+                    }
+
+                })
+
+                // [FIM] AJAX
+            }
+
+            function run_ajax_delete(){
+
+                // [INICIO] AJAX
+
+                var dados = {};
+                dados.id = id;
+                dados.marca = marca;
+
+                $.ajax({
+                    url: 'http://localhost:8081/api',
+                    method: 'DELETE',
+                    data: JSON.stringify(dados),
+                    processData: false,
+                    contentType: "application/json; charset=utf-8"
+                }).done(function(resposta){
+
+                    console.log(resposta);
+
+                })
+
+                // [FIM] AJAX
+            }
+
+            function run_ajax_update(){
+
+                // [INICIO] AJAX
+
+                var dados = {};
+                dados.id = id;
+                dados.marca = marca;
+
+                $.ajax({
+                    url: 'http://localhost:8081/api',
+                    method: 'PUT',
+                    data: JSON.stringify(dados),
+                    processData: false,
+                    contentType: "application/json; charset=utf-8"
+                }).done(function(resposta){
+
+                    console.log(resposta);
+
+                })
+
+                // [FIM] AJAX
+            }
+
+        </script>
+        <script>
+            //run_ajax_insert();
+            //run_ajax_select();
+            run_ajax_delete();
+            //run_ajax_update();
+        </script>
+    </body>
+</html>

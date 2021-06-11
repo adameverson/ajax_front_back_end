@@ -1,0 +1,19 @@
+{
+  "name": "back_end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "back_end/app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon back_end/app.js",
+    "start": "nodemon back_end/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
